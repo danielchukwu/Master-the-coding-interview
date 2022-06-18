@@ -18,4 +18,4 @@ def findNemo(array):
    end = time.time()
    print(f'findNemo function took {end-start} ms')
 
-findNemo(names1000)
+findNemo(names10000)
