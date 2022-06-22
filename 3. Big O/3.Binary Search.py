@@ -6,7 +6,7 @@ import enum
 import time
 
 nemo = ['michael', 'dwight', 'jim', 'pam', 'oscar', 'angela', 'toby', 'roy', 'shela', 'daniel'] 
-nemo2 = ["jake"]
+nemo2 = ["jake"] * 100000
 nemo2.append('toby')
 
 # nemo2.sort()
