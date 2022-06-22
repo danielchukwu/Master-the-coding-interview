@@ -2,13 +2,13 @@ from operator import truediv
 
 
 def funChallenge(array):
-   a = 10
-   a = 50 + 3
+   a = 10       # O(1)
+   a = 50 + 3   # O(1)
 
-   for i in array:
+   for i in array:   # O(n)
       def anotherFunction(): return a + a
-      anotherFunction()
-      stranger = True
+      anotherFunction()   # O(1)
+      stranger = True     # O(1)
 
    return a
 
