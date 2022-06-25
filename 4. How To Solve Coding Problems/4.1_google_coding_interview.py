@@ -131,3 +131,17 @@ def hasPairWithSum2(collection, sum):
 result2 = hasPairWithSum2([1, 2, 4, 9], 8) # O(n) 
 print(result2)
 
+
+# Interviewer - would you do anything different if let's say we had about 10 million integers in both our collections given
+
+# ANSWER - 5th
+# You - So if the input is this large, does it still fit in memory?
+# Interviewer - Probaply not. sorry ^_^
+
+# You - So is the range of the values (p.s: in our collection), let's say limited
+# Interviewer - Yes of course, we can say that, please of course go ahead
+
+# You concluding - So if my set data structure fits in memory but my entire input doesn't fit in memory, then i can just process the input in chunks and i just accumulate it in a set - and i don't know but if we can do it in parallel then it's kinda the same thing --> where we would have multiple computers, each one would be processing each bit of the input and producing it's own set of compliments that particular bit has seen and then we just end up merging them -- if that would work
+# Interviewer - I think we have enough computers to do that -- **she giggles😁 in delight
+
+# You - now where it get's tricky is that we want to make sure that we don't sort of look for the thing that we already put in or repeating comliments --> so i think what i want to do is make sure that each computer is testing this in the right order, when we merge them we would know how best to reconcile any identical compliment
