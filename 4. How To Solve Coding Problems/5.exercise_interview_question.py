@@ -23,6 +23,29 @@
 # Interviewer - no it isn't allowed
 
 # ANSWER - 1
-# My first approach to solving this problem would be using a nested for loop to iterate through each array checking if there is match - if there is return true else after iteration and no match was found, then return False. That function would have a Big O of O(n^2)
+# My first approach to solving this problem would be using a nested for loop to iterate through each array checking if there is match - if there is return true else after iteration and no match was found, then return False. That function would have a Big O of O(n^2). But if we considered different terms for different inputs the Big O would be O(a*b).
 
+# interviewer - well that would be 1 way to solve this problem. but how about a more efficient function with a better Time Complexity
 
+# ANSWER - 2
+# Well i could add both arrays together at the start of the Algorithm to form a new array (in python addition i think is Constant Time). Am i allowed to do that?
+# interviewer: well i guess you are
+# You continue: so if i do that, i will go ahead to iterate through this new array and i would store each element i come across in a hash table(with a Constant Time lookup and insertion) and before storing them i would first ask is the current element i am iterating over in our hash table --> if it is then we return True --> else: we continue till we've exhausted the new array and then we return False
+# interviewer: Wow. I love it --> So how would you like to code this
+# You: using Python for sure
+
+# Okay: Let's get Coding
+
+def hasCommonItem(arr1, arr2):
+   full_arr = arr1 + arr2
+   common = set()
+   
+   for item in full_arr:
+      if item in common:
+         return True
+      common.add(item)
+
+   return False
+
+result = hasCommonItem(['a', 'b', 'c', 'x'], ['z', 'y', 'i'])
+print(f"Common: {result}")
