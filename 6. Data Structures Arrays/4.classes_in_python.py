@@ -36,5 +36,10 @@ class BasketballPlayer(Player):
       print(f"{self.name} just won the Dunk Contest!!!")
 
 baller = BasketballPlayer("Russel Westbrook", "point-guard", True, 3)
-baller.introduction()
-baller.highlight()
+# baller.introduction()
+# baller.highlight()
+
+arr1 = [1, 2, 3]
+print(arr1)
+del arr1[-1]
+print(arr1)
