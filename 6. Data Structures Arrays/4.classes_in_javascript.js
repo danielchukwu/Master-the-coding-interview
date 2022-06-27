@@ -18,7 +18,6 @@ class Car {
 class Motor extends Car {
    
    constructor (name, type, color, glass_color) {
-      // console.log(this)
       super(type, color, glass_color);
       this.name = name;
    }
