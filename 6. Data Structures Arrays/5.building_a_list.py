@@ -42,3 +42,4 @@ for name in ["tobi", "gabriel", "grateman", "nelson", "wisdom", "emma"]: myList.
 # myList.pop()
 myList.delete(2)
 print(myList.data)
+print("Done")
