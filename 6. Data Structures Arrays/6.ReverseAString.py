@@ -17,6 +17,9 @@
 
 
 def reverse(string):
+   if (type(string) != type("") or len(string) <= 1):
+      return "Invalid input passed in!"
+   
    strList = list(string)
    length = len(strList) - 1
 
@@ -30,3 +33,12 @@ def reverse(string):
 string1 = "abcdefg"
 reverse_string = reverse(string1)  # O(n)
 print(reverse_string)
+
+
+# Interviewer: I like that how about making it more readable. can you do that
+
+def reverse2(string):
+   return ''.join(list(iter(reversed(string))))
+
+reversedString = reverse2(string1)
+print(reversedString)
