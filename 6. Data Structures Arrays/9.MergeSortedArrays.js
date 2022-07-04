@@ -13,7 +13,7 @@ function mergeSortedArrays(arr1, arr2){
       return arr1.concat(arr2);
    }
    
-   const mergedArray = [];
+   let mergedArray = [];
    let i = 0; 
    let j = 0;
 
@@ -25,19 +25,10 @@ function mergeSortedArrays(arr1, arr2){
       let arr1item = arr1[i];
       let arr2item = arr2[j];
 
-      // Check: add the rest of the op
-      if (i === arr1Length){
-         mergedArray.push(...arr2.slice(j,));
-         break;
-      } else if (j === arr2Length){
-         mergedArray.push(...arr1.slice(i,));
-         break;
-      }
+      // Check: to see if we have added all the elements of either arr1 or arr2
+      [mergedArray, done] = checkArryays(mergedArray, arr1, arr2, arr1Length, arr2Length, i, j);
+      if (done) break;
 
-      // [0, 3, 4, 31], 
-      //           ^
-      // [4, 6, 30]
-      //        ^
       if (arr1item === arr2item){
          mergedArray.push(arr1item);
          mergedArray.push(arr2item);
@@ -51,13 +42,26 @@ function mergeSortedArrays(arr1, arr2){
          j++;
       }
 
-      // merged
-      // [0, 3, 4, 4, ]
    }
    console.log(mergedArray)
 }
 
-const arr1 = [0, 3, 4, 31]; 
-const arr2 = [4, 6, 30];
+const arr1 = [0, 3, 4, 31, 35, 36, 39]; 
+const arr2 = [4, 6, 30, 33, 37];
 
 mergeSortedArrays(arr1, arr2)
+
+
+function checkArryays(mergedArray, arr1, arr2, arr1Length, arr2Length, i, j) {
+   // Program is done variable
+   let done = false;
+
+   if (i === arr1Length){
+      mergedArray.push(...arr2.slice(j,));
+      done = true;
+   } else if (j === arr2Length){
+      mergedArray.push(...arr1.slice(i,));
+      done = true;
+   }
+   return [mergedArray, done]
+}
