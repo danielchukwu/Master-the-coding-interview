@@ -10,7 +10,8 @@
 function mergeSortedArrays(arr1, arr2){
    // Check Input
    if (arr1.length === 0 || arr2.length === 0){
-      return arr1.concat(arr2);
+      arr1.push(...arr2)
+      return arr1;
    }
    
    let mergedArray = [];
@@ -29,28 +30,16 @@ function mergeSortedArrays(arr1, arr2){
       [mergedArray, done] = checkArryays(mergedArray, arr1, arr2, arr1Length, arr2Length, i, j);
       if (done) break;
 
-      if (arr1item === arr2item){
-         mergedArray.push(arr1item);
-         mergedArray.push(arr2item);
-         i++;
-         j++;
-      } else if (arr1item < arr2item) {
-         mergedArray.push(arr1item);
-         i++;         
-      } else if (arr1item > arr2item) {
-         mergedArray.push(arr2item);
-         j++;
-      }
-
+      // Merge Arrays: add items from both arrays in a sorted order
+      [mergedArray, i, j] = mergeArrays(mergedArray, arr1item, arr2item, i, j);
    }
    console.log(mergedArray)
 }
 
-const arr1 = [0, 3, 4, 31, 35, 36, 39]; 
-const arr2 = [4, 6, 30, 33, 37];
+const arr1 = []; 
+const arr2 = [5, 6, 7];
 
 mergeSortedArrays(arr1, arr2)
-
 
 function checkArryays(mergedArray, arr1, arr2, arr1Length, arr2Length, i, j) {
    // Program is done variable
@@ -64,4 +53,21 @@ function checkArryays(mergedArray, arr1, arr2, arr1Length, arr2Length, i, j) {
       done = true;
    }
    return [mergedArray, done]
+}
+
+function mergeArrays (mergedArray, arr1item, arr2item, i, j) {
+   if (arr1item === arr2item){
+      mergedArray.push(arr1item);
+      mergedArray.push(arr2item);
+      i++;
+      j++;
+   } else if (arr1item < arr2item) {
+      mergedArray.push(arr1item);
+      i++;         
+   } else if (arr1item > arr2item) {
+      mergedArray.push(arr2item);
+      j++;
+   }
+
+   return [mergedArray, i, j]
 }
