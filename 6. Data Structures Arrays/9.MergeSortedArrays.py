@@ -21,6 +21,7 @@
 
 def mergeSortedArrays(arr1, arr2):
    # Input Validation
+   if (len(arr1) == 0 or len(arr2) == 0): return arr1 + arr2
    bigList = []
    i = 0
    j = 0
@@ -60,4 +61,4 @@ arr1, arr2 = [0, 3, 4, 31], [4, 6, 30]
 mergeSortedArrays(arr1, arr2)
 
 
-# Interviewer - That an absoultely great solution. How would you make this code more readable and cleaner
+# Interviewer - That's an absoultely great solution. How would you make this code more readable and cleaner
