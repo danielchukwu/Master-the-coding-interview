@@ -3,27 +3,21 @@
 // program - Write a function that reverses a string 
 
 
-function reverse (string) {
-   if (typeof string !== "string" || string.length < 2){
-      return "Input didn't pass the check!"
+function reverse(str){
+   // check input
+   if (typeof(str) !== 'string' || str.length < 2){
+      return;
    }
-   let backwards = "";
-   let stringLen = string.length-1;
 
-   for (let i=stringLen; i >= 0; i--){
-      backwards += string[i];
+   let reversedStr = '';
+   for (let i=str.length-1; i>=0; i--){
+      reversedStr += str[i];
    }
-   console.log(backwards)
-   return backwards
-} 
-
-
-let string1 = "abcdefgh"
-reverse(string1)
+   console.log(reversedStr);
+}
+reverse
 
 // Improving readability
-const reverse2 = string => {
-   return reverse(string)
-}
+const reverse2 = string => reverse(string);
 
 reverse2(string1)
