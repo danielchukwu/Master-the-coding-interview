@@ -24,12 +24,18 @@
 // ['a', 'b', 'c', 'x', 'z', 'y', 'i']
 
 function hasCommonItem(arr1, arr2){
-   const mergedArray = [...arr1, ...arr2];
-   const seen = new Set();
+   const mergedArray = [...arr1, ...arr2]; // O(1)
+   const seen = new Set();     // O(1)
 
-   for (const item in mergedArray) {
-      console.log(item);
+   for (const k in mergedArray){
+      if (seen.has(mergedArray[k])){
+         return true;
+      }
+      seen.add(current); // O(n)
    }
+   return false;
 }
 
-hasCommonItem(['a', 'b', 'c', 'x'], ['z', 'y', 'i']);
+const arr1Test = [['a', 'b', 'c', 'x'], ['z', 'y', 'i']];
+const arr2Test = [['a', 'b', 'c', 'x'], ['z', 'y', 'x']];
+hasCommonItem(...arr2Test);     // Time = O(n), Space = O(n)
