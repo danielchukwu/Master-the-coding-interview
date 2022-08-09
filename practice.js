@@ -96,7 +96,6 @@ function findPair3(collection, givenSum){
          latters.add(givenSum-currentValue);
       }
    }
-   
 }
 
 findPair3([1, 2, 4, 4], 8);   // Big O => O(n) Linear Time
