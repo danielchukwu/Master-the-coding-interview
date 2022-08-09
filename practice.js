@@ -5,3 +5,45 @@
 //   Output = [0, 3, 4, 4, 6, 30, 31]
 
 
+// ANSWER
+// SOLUTION 1
+// q - can i assume that the inputs are always going to be arrays
+// int - yes you can
+
+// q - are both arrays always going to be sorted individually
+// int - yes they are
+
+// q - are both arrays allowed to have identical values
+// int - ya they are
+
+// first solution that comes to mind is to use nested for loops to iterate through both arrays and compare both
+// [0, 3, 4, 31], [4, 6, 30]
+//  ^              ^
+// use double pointers to iterate
+
+function mergeArrays(arr1, arr2){
+   // check input
+   if (typeof(arr1) !== 'object' || typeof(arr2) !== 'object') {return 'input is not an array'}
+   // check length of array
+   if ((arr1.length === 0) || (arr2.length ===0)){return [...arr1, ...arr2]}
+
+   let mergedArray = []
+   let i = 0;
+   let j = 0;
+
+   while ( (i < arr1.length) && (j < arr2.length) ) {
+      if (arr1[i] <= arr2[j]){
+         mergedArray.push(arr1[i]);
+         i++;
+      } else {
+         mergedArray.push(arr2[j]);
+         j++;
+      }
+   }
+
+   mergedArray = [...mergedArray, ...arr1.slice(i), ...arr2.slice(j)]
+   console.log(mergedArray)
+   return mergedArray;
+}
+
+mergeArrays([0, 3, 4, 31], [4, 6, 30])
