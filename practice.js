@@ -64,4 +64,12 @@ function hasCommonItem3(arr1, arr2){
 // hasCommonItem3(...arr2Test);     // Time = O(n), Space = O(a)
 
 
+// SOLUTION 4
+// if readability is what's more important and not time we can also write this using a javascript provided method which is
+
+function hasCommonItem4(arr1, arr2){
+   return arr1.some(item => arr2.includes(item));
+}
+let commonFound = hasCommonItem4(...arr2Test);     // Time = O(n), Space = O(a)
+console.log(commonFound);
 
