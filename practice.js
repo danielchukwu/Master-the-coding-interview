@@ -1,101 +1,35 @@
 // Javascript - {}
-// Topic - White Board Coding Interview
-// program - I am going to give you a collection of numbers, and i need you to take this collection of numbers and find a matching pair that is equal to a sum that i am going to give you as well
-// Inputs(arrays) and outputs(sum)
-// collection 1 : [1, 2, 5, 9] sum = 8
-// collection 2 : [1, 2, 4, 4] sum = 8
+// Topic - coding interview
+// Problem:
+//    Given 2 Arrays, create a functon that let's a user know (true/false) whether these two arrays contain any common items
+// E.g 
+// const array1 = ['a', 'b', 'c', 'x']   |  const array1 = ['a', 'b', 'c', 'x']
+// const array2 - ['z', 'y', 'i']        |  const array2 - ['z', 'y', 'x']
+// should return False                   |  should return True
 
+
+// ANSWER
 // SOLUTION 1
-// i can simply iterate through the array and on each item, i binary search the rest of the array for a posible match which would give me an nlogn time complexity
-
-
-// collection 1 : [1, 2, 5, 9] sum = 8
-//                 ^
-function findLatter(newCollection, latterValue) {
-   while (newCollection.length > 0){
-      let mid_i = Math.floor(newCollection.length / 2);  // mid index
-      let mid_v = newCollection[mid_i];  // mid value
-
-      if(mid_v == latterValue){   // if latter in pair found
-         return true;
-         
-      } else if (mid_v < latterValue){
-         newCollection = newCollection.slice(mid_i+1);
-         
-      } else if (mid_v > latterValue){
-         newCollection = newCollection.slice(0, mid_i);
-      }
-   }
-}
-
-function findPair(collection, givenSum){
-   size = collection.length - 1;
-
-   for(let i=0; i<size; i++){
-      current = collection[i];
-      newCollection = collection.slice(i+1);    // array to binary search
-      let latterValue = givenSum - current;     // latter value
-
-      pairFound = findLatter(newCollection, latterValue); // check if latter exists in
-
-      if (pairFound){
-         console.log("PAIR FOUND!");
-         return true;
-      }
-   }
-}
-
-// findPair([1, 2, 3, 5, 9], 8) // Big O => O(n logn) Quadratic Time
-
-// interviewer. that is one way to solve the problem but that solution would be too expensive for this company you know
-
+// first solution would obviously be to use a nested for loop and compair both arrays until we find a match to return true or don't to return false, but that would be a quadratic time complexity soo it wouldn't be the best solution except time efficiency wasn't the goal but space and readability
 
 // SOLUTION 2
-// i can make this linear time by using double pointers to check the first and the last item of the array if they are a pair that adds up to 8 or if not i want to know if our sum is greater or lesser to know whether to shift our first pointer or the last pointer
+// q - do we have space
+// interviewer - yes we do
+// q - how much does the array grow
+// interviewerr - for now only the given size but it is expected to grow to over a million over the next one year
+// q - i noticed that array1 is sorted in a descending order and array2 is sorted in an ascending order, is that intentional and should i always expect that
+// interviewer - ya you can
 
-// collection 1 : [1, 2, 5, 9] sum = 8
-//                 ^        ^
-function findPair2(collection, givenSum){
-   let first = 0;
-   let last = collection.length - 1;
+// i could merge both arrays, then use a set datastructure that has a constant time insertion and lookup and then iterate through the merged array and ask on each iteration is the current iter element in array, if so then return true if not add current itter element to the set datastructure and continue looping. if merged array is exhausted without any finding any identical element then return false 
+// ['a', 'b', 'c', 'x', 'z', 'y', 'i']
 
-   while(first !== last){
-      let sum = collection[first] + collection[last];
+function hasCommonItem(arr1, arr2){
+   const mergedArray = [...arr1, ...arr2];
+   const seen = new Set();
 
-      if (sum == givenSum){
-         console.log("found pair. Hooray!!! -> " + collection[first] + " and " + collection[last]);
-         return true;
-      } else if (sum < givenSum) {
-         first++;
-      } else if (sum > givenSum) {
-         last--;
-      }
+   for (const item in mergedArray) {
+      console.log(item);
    }
 }
 
-// findPair2([1, 2, 4, 4], 8);   // Big O => O(n) Linear Time
-
-// interviewer okay that is good, but let me take it a step further now and say that the order of the array is no longer guranteed. which other way can you think of to solve this problem
-
-
-// SOLUTION 3
-// create a set that is to store latter values for each item in the array. loop through array and check on each loop if current value is in the latter set then their 
-
-// collection 1 : [2, 1, 9, 5] sum = 8
-//                 ^
-function findPair3(collection, givenSum){
-   const latters = new Set();
-
-   for(let i=0; i<collection.length; i++){
-      currentValue = collection[i];
-
-      if (latters.has(currentValue)){
-         console.log("PAIR FOUND! => " + currentValue + " at index " + i);
-         return true;
-      } else {
-         latters.add(givenSum-currentValue);
-      }
-   }
-}
-
-findPair3([1, 2, 4, 4], 8);   // Big O => O(n) Linear Time
+hasCommonItem(['a', 'b', 'c', 'x'], ['z', 'y', 'i']);
