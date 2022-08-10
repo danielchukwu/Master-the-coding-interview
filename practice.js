@@ -84,15 +84,39 @@ function reverse(nums, start, end){
 }
 
 var rotate3 = function(nums, k) {
-   if (nums.length < k){
-      reverse(nums, 0, nums.length-1);
-      return nums;
-   }
    reverse(nums, 0, nums.length-1);
-   reverse(nums, 0, k-1);
-   reverse(nums, k, nums.length-1);
-   
+   if (k < nums.length-1){
+      reverse(nums, 0, k-1);
+      reverse(nums, k, nums.length-1);
+   }
+
+   console.log(nums)
    return nums;
 }
 
-rotate3(...t1)
+// rotate3(...t4) // leetcode -> unaccepted : passed 30 out of 38 testcases
+
+
+// SOLUTION 4
+function rotate4 (nums, k) {
+   arrSize = nums.length;
+   k = k % arrSize;
+   reverse4(nums, 0, arrSize-1); // reverse entire array
+   reverse4(nums, 0, k-1); // reverse the left chunk
+   reverse4(nums, k, arrSize-1); // reverse the right chunk
+
+   console.log(nums);
+   return nums;
+}
+
+function reverse4(nums, start, end){
+   while (start < end){
+      let temp = nums[start];
+      nums[start] = nums[end];
+      nums[end] = temp;
+      start++;
+      end--;
+   }
+}
+
+rotate4(...t1)
