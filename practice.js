@@ -41,9 +41,35 @@ function mergeArrays(arr1, arr2){
       }
    }
 
+   // add rest of the array to mergedArray
    mergedArray = [...mergedArray, ...arr1.slice(i), ...arr2.slice(j)]
    console.log(mergedArray)
    return mergedArray;
 }
 
-mergeArrays([0, 3, 4, 31], [4, 6, 30])
+// mergeArrays([0, 3, 4, 31], [4, 6, 30])
+
+
+
+var twoSum = function(nums, target) {
+   // iterate through the array and add the compliment for each item that possibly adds up 
+   // to target -> as the key to the index of that value and keep checking
+   const latterDict = {};
+   let current;
+   
+   for(let i=0; i<nums.length; i++){
+      if (latterDict.hasOwnProperty(nums[i])){
+         return [latterDict[nums[i]], i]
+      }
+      let latter = target - nums[i];
+      latterDict[latter] = i;
+   }
+   
+};
+
+const test1 = [[2,7,11,15], 9]
+const test2 = [[3,2,4], 6]
+const test3 = [[3,3], 6]
+
+const result = twoSum(...test3)
+console.log(result)
