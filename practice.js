@@ -1,37 +1,66 @@
 // Javascript - {}
 // Topic - Leetcode (maximum subarray)
-// Program: 3. Problem: Given an integer array nums, find the contiguous subarray (containing at least one number)
-// which has the 
-// largest sum and return its sum.
+// Problem: Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the
+// non-zero elements.
 
-// A subarray is a contiguous part of an array. 
+// Note that you must do this in-place without making a copy of the array.
 
 // Example 1:
-// Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
-// Output: 6
-// Explanation: [4,-1,2,1] has the largest sum = 6.
+
+
+// Input: nums = [0,1,0,3,12]
+// Output: [1,3,12,0,0]
 // Example 2:
 
-// Input: nums = [1]
-// Output: 1
-// Example 3:
-
-// Input: nums = [5,4,-1,7,8]
-// Output: 23
-
+// Input: nums = [0]
+// Output: [0]
 
 // Constraints:
 
-// 1 <= nums.length <= 105
-// -104 <= nums[i] <= 104
+// 1 <= nums.length <= 104
+// -231 <= nums[i] <= 231 - 1
 
+// Follow up: Could you minimize the total number of operations done?
 
-// Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+// ANSWER
 
+var moveZeroes = function(nums) {
+   let count = 0;
+   for (let i = 0; i<nums.length; i++) {
+      nums[i] = nums[i+count]
+      if(nums[i]===0){
+         count++;
+         nums[i] = nums[i+count]
+      }
 
-const t1 = [[-2,1,-3,4,-1,2,1,-5,4], 6];
-const t2 = [[1], 1];
-const t3 = [[5,4,-1,7,8], 23];
-const t4 = [[-1, -2], -1];
+      if (nums[i] === undefined){
+         nums[i] = 0;
+      }
+   }
+   console.log(nums);
+   return nums;
+};
 
-maxSubArray(...t1);
+const t1 = [0,1,0,3,12];
+const t2 = [0];
+const t3 = [0, 0, 1];
+const t4 = [1];
+
+moveZeroes(t3)  // test case 3 fails for this solution and 4 fails
+
+// ANSWER 2 - 
+var moveZeroes2 = function(nums) {
+   let count = 0;
+   for (let i = 0; i<nums.length; i++) {
+      if (nums[i] === 0){
+         count ++;
+      } else if (count > 0){
+         nums[i-count] = nums[i];
+         nums[i] = 0;
+      }
+   }
+   console.log(nums);
+   return nums;
+};
+
+moveZeroes2(t4)  // perfect
