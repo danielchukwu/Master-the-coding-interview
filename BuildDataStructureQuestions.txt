@@ -1,0 +1,11 @@
+1. Build an Array with the following methods and state there Big O's
+   - push
+   - pop
+   - unshift
+   - shift
+   - slice
+   - splice
+
+2. Build a HashTable with the following methods 
+   - set
+   - get
