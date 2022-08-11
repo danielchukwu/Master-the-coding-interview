@@ -6,6 +6,6 @@
    - slice
    - splice
 
-2. Build a HashTable with the following methods 
+2. Build a Hash Table with the following methods 
    - set
    - get
