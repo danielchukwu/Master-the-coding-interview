@@ -9,3 +9,10 @@
 2. Build a Hash Table with the following methods 
    - set
    - get
+
+3. Build a Linked List Data Structure with the following methods 
+  - append
+  - prepend 
+  - insertion
+  - lookup
+  - delete
