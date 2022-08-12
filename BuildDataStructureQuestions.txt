@@ -13,6 +13,8 @@
 3. Build a Linked List Data Structure with the following methods 
   - append
   - prepend 
-  - insertion
-  - lookup
+  - insert
   - delete
+  - search
+
+b. Build a Doubly Linked List with the above operations also
