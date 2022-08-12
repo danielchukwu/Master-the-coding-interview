@@ -40,6 +40,15 @@ class LinkedList {
       return this;
    }
 
+   prepend(value) {
+      this.head = {
+         value: value,
+         next: this.head
+      };
+      this.length++;
+      return this;
+   }
+
    
 }
 
