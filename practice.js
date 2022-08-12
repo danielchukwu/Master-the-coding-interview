@@ -30,6 +30,18 @@ class LinkedList {
       this.length = 1;
    }
 
+   print() {
+      let node = this.head;
+      const array = [];
+      while(node.next){
+         array.push(node.value);  // add current node value
+         array.push(" --> ");  
+         node = node.next;  // set node to next node
+      }
+      // console.log(array);
+      console.log(array.join(''));
+   }
+
    append(value) {
       this.tail.next = {
          value: value,
@@ -49,18 +61,31 @@ class LinkedList {
       return this;
    }
 
-   
+   insert(value, nodePosValueToInsert){
+      let [node, prevNode] = this._find(nodePosValueToInsert);
+      node.next = {
+         value: value,
+         next: node.next
+      };
+      return this;
+   }
 
-   print() {
+   delete(value) {
+      let [node, prevNode] = this._find(value)
+      if (prevNode) prevNode.next = node.next;
+   }
+
+   _find(nodeValue){
       let node = this.head;
-      const array = [];
+      let prevNode = null;
       while(node.next){
-         array.push(node.value);  // add current node value
-         array.push(" --> ");  
-         node = node.next;  // set node to next node
+         if (node.value === nodeValue){
+            return [node, prevNode];
+         }
+         prevNode = node
+         node = node.next;
       }
-      // console.log(array);
-      console.log(array.join(''));
+      return [null, prevNode];
    }
 }
 
@@ -69,6 +94,8 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
+myLinkedList.insert(12, 1);
+myLinkedList.delete(1)
 myLinkedList.print();
 
 console.log(myLinkedList);
