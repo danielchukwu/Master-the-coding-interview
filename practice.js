@@ -50,6 +50,18 @@ class LinkedList {
    }
 
    
+
+   print() {
+      let node = this.head;
+      const array = [];
+      while(node.next){
+         array.push(node.value);  // add current node value
+         array.push(" --> ");  
+         node = node.next;  // set node to next node
+      }
+      // console.log(array);
+      console.log(array.join(''));
+   }
 }
 
 const myLinkedList = new LinkedList(10);
