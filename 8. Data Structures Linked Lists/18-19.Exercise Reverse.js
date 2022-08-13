@@ -86,3 +86,5 @@ myLinkedList.printList();
 myLinkedList.reverse();
 
 console.log(myLinkedList);
+
+export default LinkedList;
