@@ -135,3 +135,29 @@
 
    Visit for the current link to problems
    file:///C:/Users/Daniel%20Chukwu/Desktop/Lectures/Udemy/Master%20the%20Coding%20Interview%20Data%20Structures%20+%20Algorithms/6.%20Data%20Structures%20Arrays/11.%20Interview%20Questions%20Arrays.html
+
+
+
+
+
+
+
+Hash Tables 
+
+
+
+
+
+
+
+
+
+
+Linked List
+1. Problem: Given a linkedlist, how would you go about reversing the list. write a method to do this
+   Example 1:
+
+   Input:  [1, 10, 16, 18]
+   Output: [18, 16, 10, 1]
+
+   constraint : use a singly linked list
