@@ -33,9 +33,8 @@ class LinkedList {
    print() {
       let node = this.head;
       const array = [];
-      while(node.next){
-         array.push(node.value);  // add current node value
-         array.push(" --> ");  
+      while(node !== null){
+         array.push(node.value," --> ");  // add current node value
          node = node.next;  // set node to next node
       }
       // console.log(array);
@@ -67,12 +66,17 @@ class LinkedList {
          value: value,
          next: node.next
       };
+      this.length++;
       return this;
    }
 
    delete(value) {
       let [node, prevNode] = this._find(value)
       if (prevNode) prevNode.next = node.next;
+   }
+
+   search(value) {
+      return this._find(value)[0];
    }
 
    _find(nodeValue){
@@ -92,10 +96,13 @@ class LinkedList {
 const myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
-myLinkedList.append(16);
-myLinkedList.prepend(1);
-myLinkedList.insert(12, 1);
-myLinkedList.delete(1)
-myLinkedList.print();
+myLinkedList.append(12);    // append O(1)
 
+myLinkedList.prepend(1);    // prepend O(1)
+myLinkedList.insert(7, 5);  // insert O(n)
+myLinkedList.search(7);  // search O(n)
+
+myLinkedList.delete(7);  // delete O(n)
+
+myLinkedList.print();
 console.log(myLinkedList);
