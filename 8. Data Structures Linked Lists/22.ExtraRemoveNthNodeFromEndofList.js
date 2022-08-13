@@ -28,3 +28,29 @@
 // Submissions
 // 4,021,081
 
+var removeNthFromEnd = function(head, n) {
+   // check params
+   if (!head.next){
+      head = head.next;
+      return head;
+   }
+   
+   let tail = head;
+   let counter = 0;
+   while (tail){
+      counter++;
+      tail = tail.next;
+   }
+   tail = head;
+   // console.log(counter)
+   counter -= n;
+   if (counter <= 0) return head.next;
+   
+   for (let i=1; i<counter; i++){
+      tail = tail.next;
+      console.log(tail);
+   }
+   
+   tail.next = tail.next ? tail.next.next : null;
+   return head;
+};
