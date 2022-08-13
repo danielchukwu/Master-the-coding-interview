@@ -14,7 +14,7 @@
   - append
   - prepend 
   - insert
-  - delete
+  - remove
   - search
 
 b. Build a Doubly Linked List with the above operations also
