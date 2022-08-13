@@ -46,7 +46,21 @@ class LinkedList {
       return nodeArray;
    }
 
-   
+   traverseToIndex(index) {
+      // check params
+      if (index >= this.length) return this.tail;
+
+      let counter = 0;
+      let node = this.head;
+
+      while (counter !== index) {
+         node = node.next;
+         counter++;
+      }
+
+      console.log(node.value);
+      return node;
+   }
 }
 
 const myll = new LinkedList(10);
