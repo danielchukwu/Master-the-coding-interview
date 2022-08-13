@@ -161,3 +161,6 @@ Linked List
    Output: [18, 16, 10, 1]
 
    constraint : use a singly linked list
+
+2. Problem: Go back to the Hash Table function and back where you created a Hash Table -> implement a Linked List Data 
+   Structure
