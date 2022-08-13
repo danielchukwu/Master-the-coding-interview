@@ -111,55 +111,29 @@ l2.next.next = new ListNode(4);
 console.log(l2)
 
 var addTwoNumbers = function(l1, l2) {
-   // check params
-   if (!l1.next & !l2.next){
-      // if (!ListNode(l1.val + l2.val)) return ListNode();
-      let sum = (l1.val + l2.val)
-      if (sum >= 10){
-         sum = String(sum).split('');
-         let first = new Node(parseInt(sum[0]));
-         first.next = new Node(parseInt(sum[1]));
-         return ;
-      }
-      return new ListNode(l1.val + l2.val) ? new ListNode(l1.val + l2.val) : new ListNode(0);
-   }
-
-   let num1 = [];
-   let num2 = [];
-
-   while (l1 || l2){
-      if (l1){
-         num1.push(l1.val);
-         l1 = l1.next;
-      }
-      if (l2){
-         num2.push(l2.val);
-         l2 = l2.next;
-      }
-   }
-   // console.log(num1, " and ", num2);
-   num1 = num1.reverse().join('');
-   num2 = num2.reverse().join('');
-   // console.log(num1, " and ", num2);
-   sum = parseInt(num1) + parseInt(num2);
-   console.log("SUM = ", sum)
-
-   sumArray = String(sum).split('').reverse();
-   console.log("RSUM = ", sum)
-
-   let first = new ListNode(parseInt(sumArray[0]));
-   let tail = first;
-   console.log(first)
+   // check params: non-empty, contains += integers only,
+   const l3 = new ListNode();
+   let tail = l3;
    
-   for (let i = 1; i < sumArray.length; i++) {
-      nextNode = new ListNode(parseInt(sumArray[i]));
-      tail.next = nextNode;
-      tail = nextNode;
+   let carry = 0;
+   while (l1 || l2 || carry){
+      let top = l1 ? l1.val : 0;
+      let bottom = l2 ? l2.val: 0;
+      
+      // sum
+      let sum = top + bottom + carry;
+      carry = Math.floor(sum/10);   // check if sum >= 10
+      sum = sum % 10;  // check sum again and make sure it contains only 1 digit
+      
+      tail.next = new ListNode(sum);
+      tail = tail.next;
+      
+      // move pointer
+      l1 = l1 ? l1.next : 0;
+      l2 = l2 ? l2.next : 0;
    }
-   console.log(first);
-
-   return first
-};
+   return l3.next;
+}
 
 const r1 = addTwoNumbers(l1, l2);
 console.log(r1)
