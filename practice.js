@@ -61,12 +61,32 @@ class LinkedList {
       console.log(node.value);
       return node;
    }
+
+   insert(value, index){
+      // check params
+      if (index >= this.length){
+         this.append(value);
+         return;
+      };
+      
+      const newNode = new Node(value);
+      const leader = this.traverseToIndex(index-1);
+      const leadersNext = leader.next;
+      newNode.next = leadersNext;
+      leader.next = newNode;
+      this.printList();
+
+      this.length++;
+      return this;
+   }
 }
 
 const myll = new LinkedList(10);
 myll.append(5);
 myll.append(16);
 myll.prepend(1);
+myll.printList();
+myll.insert(23, 50);
 myll.printList();
 
 console.log(myll);
