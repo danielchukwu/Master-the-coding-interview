@@ -27,15 +27,20 @@ class Stack {
       newNode.next = this.top;
       this.top = newNode;
       this.length ++;
-      return this.length;
+      return this;
    }
    pop(){
       // checks: if empty return
-      if (!this.top) return;
+      if (!this.top)  {
+         return null;
+      }
 
       const newTop = this.top.next;
       this.top = newTop;
       this.length--;
+      if (this.top === null) this.bottom = this.top;
+
+      return this;
    }
 
    isEmpty(){
@@ -51,7 +56,7 @@ class Stack {
          cur = cur.next;
       }
       console.log("null");
-      return myStack.top;
+      return this;
    }
 }
 
@@ -59,6 +64,7 @@ const myStack = new Stack("google");
 myStack.push('udemy');
 myStack.push('youtube');
 myStack.push('discord');
+myStack.pop();
 myStack.pop();
 myStack.pop();
 myStack.pop();
