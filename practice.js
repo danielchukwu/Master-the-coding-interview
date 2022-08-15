@@ -7,6 +7,11 @@
 // - peek() -- get the front element
 // - empty() -- return whether the queue is empty
 
+
+
+
+// QUEUE
+
 class Node {
    constructor(value) {
       this.value = value;
@@ -16,58 +21,36 @@ class Node {
 
 class Queue {
    constructor(value=null){
-      this.first = value ? new Node(value) : null;
-      this.last = this.first;
-      this.length = value ? 1 : 0;
+      this.first = [];
+      this.last = [];
    }
    peek(){
-      return this.first;
+      return this.first[0];
    }
    enqueue(value){
       // check
-      if (!this.last){
-         this.first = new Node(value);
-         this.last = this.first;
-         this.length++;
-
-         return this;
+      let length = this.first.length;
+      for (let i=0; i<length; i++) {
+         const element = this.first.pop();
+         this.last.push(element);
       }
-
-      const newNode = new Node(value);
-      this.last.next = newNode;
-      this.last = newNode;
-      this.length++;
-      return this;
+      this.last.push(value);
+      return this.last;
    }
    dequeue(){
       // check
-      if (this.first === this.last){
-         this.first = null;
-         this.last = this.first;
-         this.length --;
-         return this;
+      let length = this.last.length;
+      for (let i=0; i<length; i++) {
+         const element = this.last.pop();
+         this.first.push(element);
       }
-
-      const nextFirst = this.first.next;
-      this.first = nextFirst;
-      this.length--;
-      return this;
+      this.first.pop();
+      return this.first;
    }
    isEmpty(){
-      return !this.first ? true : false;
+      return this.first.length === 0 || this.last.length === 0 ? true : false;
    }
    printQueue(){
-      let array = [];
-      let cur = this.first;
-
-      while (cur){
-         array.push(cur.value);
-         cur = cur.next;
-      }
-      
-      array = array.join(' <-- ');
-      console.log(array, `| Length: ${this.length}`);
-      return this;
    }
 }
 
@@ -80,13 +63,13 @@ myQueue.enqueue('discord');
 myQueue.enqueue('youtube');
 
 myQueue.dequeue();
-myQueue.dequeue();
-myQueue.dequeue();
-myQueue.dequeue();
+// myQueue.dequeue();
+// // myQueue.dequeue();
+// // myQueue.dequeue();
 
-myQueue.enqueue('ebay')
-myQueue.enqueue('amazon')
-myQueue.enqueue('alibaba')
+// myQueue.enqueue('ebay')
+// myQueue.enqueue('amazon')
+// myQueue.enqueue('alibaba')
 
 myQueue.printQueue();
 console.log(myQueue);
