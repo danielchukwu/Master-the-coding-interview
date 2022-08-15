@@ -1,6 +1,6 @@
 // Javascript - {}
 // Topic - Build a Data Structure
-// Problem: Build a Stack Data Structure with the following methods 
+// Problem: Build the stack data structure but this time using an ARRAY data structure
 // - peek
 // - push
 // - pop 
@@ -15,61 +15,38 @@ class Node {
 
 class Stack {
    constructor(value=null){
-      this.top = value ? new Node(value) : null;
-      this.bottom = this.top;
-      this.length = value ? 1 : 0;
+      this.data = [];
    }
    peek(){
-      return this.top;
+      return this.data[0] ? this.data[this.data.length-1] : null;
    }
    push(value){
-      let newNode = new Node(value);
-      newNode.next = this.top;
-      this.top = newNode;
-      this.length ++;
+      this.data.push(value);
       return this;
    }
    pop(){
-      // checks: if empty return
-      if (!this.top)  {
-         return null;
-      }
-
-      const newTop = this.top.next;
-      this.top = newTop;
-      this.length--;
-      if (this.top === null) this.bottom = this.top;
-
+      this.data.pop();
       return this;
    }
 
    isEmpty(){
-      return !this.length ? true : false;
+      return !this.data.length ? true : false;
    }
 
    printStack(){
-      let cur = this.top;
-
-      while (cur !== null){
-         console.log(cur.value);
-         console.log("  |  ");
-         cur = cur.next;
-      }
-      console.log("null");
+      console.log(this.data);
       return this;
    }
 }
 
-const myStack = new Stack("google");
-myStack.push('udemy');
-myStack.push('youtube');
-myStack.push('discord');
-myStack.pop();
-myStack.pop();
-myStack.pop();
-myStack.pop();
+const mystack = new Stack();
+mystack.push('google');
+mystack.push('udemy');
+mystack.push('youtube');
+mystack.pop();
+mystack.pop();
+mystack.push("1337x");
+mystack.push("spotify");
 
-console.log(myStack.isEmpty())
-
-console.log(myStack.printStack())
-console.log(myStack.length)
+mystack.printStack();
+console.log(mystack.peek());
