@@ -30,9 +30,16 @@ class Stack {
       return this.length;
    }
    pop(){
+      // checks: if empty return
+      if (!this.top) return;
+
       const newTop = this.top.next;
       this.top = newTop;
       this.length--;
+   }
+
+   isEmpty(){
+      return !this.length ? true : false;
    }
 
    printStack(){
@@ -44,7 +51,7 @@ class Stack {
          cur = cur.next;
       }
       console.log("null");
-      
+      return myStack.top;
    }
 }
 
@@ -52,7 +59,11 @@ const myStack = new Stack("google");
 myStack.push('udemy');
 myStack.push('youtube');
 myStack.push('discord');
-// myStack.pop();
+myStack.pop();
+myStack.pop();
+myStack.pop();
+
+console.log(myStack.isEmpty())
 
 console.log(myStack.printStack())
 console.log(myStack.length)
