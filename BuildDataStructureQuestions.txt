@@ -25,4 +25,6 @@ b. Build a Doubly Linked List with the above operations also
  - pop 
  - isEmpyt (optional)
 
+b. implement the stack ds but this time using an ARRAY data structure
+
  
