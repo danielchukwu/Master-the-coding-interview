@@ -18,3 +18,11 @@
   - search
 
 b. Build a Doubly Linked List with the above operations also
+
+4. Build a Stack Data Structure with the following methods 
+ - peek
+ - push
+ - pop 
+ - isEmpyt (optional)
+
+ 
