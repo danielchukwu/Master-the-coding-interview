@@ -1,11 +1,10 @@
 // Javascript - {}
-// Topic - Coding Interview Problem
-// Problem: Problem: Implement Queue Using Stacks
-// Description: Implement the following operations of a queue using stacks 
-// - push(x) -- push element x to the back of queue 
-// - pop() -- removes the element from in front of queue 
-// - peek() -- get the front element
-// - empty() -- return whether the queue is empty
+// Topic - Build a Data Structure
+// Problem: Build a Queue Data Structure with the following methods
+// - peek
+// - enqueue 
+// - dequeue
+// - isEmpty (optional)
 
 class Node {
    constructor(value) {

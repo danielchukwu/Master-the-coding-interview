@@ -222,3 +222,21 @@ LEETCODE: LINKED LIST
    1,568,229
    Submissions
    4,021,081
+
+
+
+
+
+
+
+
+Stacks & Queues
+1. Problem: Implement Queue Using Stacks
+   Description: Implement the following operations of a queue using stacks 
+   - push(x) -- push element x to the back of queue 
+   - pop() -- removes the element from in front of queue 
+   - peek() -- get the front element
+   - empty() -- return whether the queue is empty
+ 
+ 
+ 
