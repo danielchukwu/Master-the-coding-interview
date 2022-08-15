@@ -1,10 +1,10 @@
 // Javascript - {}
 // Topic - Build a Data Structure
-// Problem: Build the stack data structure but this time using an ARRAY data structure
+// Problem: Build a Queue Data Structure with the following methods
 // - peek
-// - push
-// - pop 
-// - isEmpyt (optional)
+// - enqueue 
+// - dequeue
+// - isEmpty (optional)
 
 class Node {
    constructor(value) {
@@ -13,40 +13,79 @@ class Node {
    }
 }
 
-class Stack {
+class Queue {
    constructor(value=null){
-      this.data = [];
+      this.first = value ? new Node(value) : null;
+      this.last = this.first;
+      this.length = value ? 1 : 0;
    }
    peek(){
-      return this.data[0] ? this.data[this.data.length-1] : null;
+      return this.first;
    }
-   push(value){
-      this.data.push(value);
-      return this;
-   }
-   pop(){
-      this.data.pop();
-      return this;
-   }
+   enqueue(value){
+      // check
+      if (!this.last){
+         this.first = new Node(value);
+         this.last = this.first;
+         this.length++;
 
+         return this;
+      }
+
+      const newNode = new Node(value);
+      this.last.next = newNode;
+      this.last = newNode;
+      this.length++;
+      return this;
+   }
+   dequeue(){
+      // check
+      if (this.first === this.last){
+         this.first = null;
+         this.last = this.first;
+         this.length --;
+         return this;
+      }
+
+      const nextFirst = this.first.next;
+      this.first = nextFirst;
+      this.length--;
+      return this;
+   }
    isEmpty(){
-      return !this.data.length ? true : false;
+      return !this.first ? true : false;
    }
+   printQueue(){
+      let array = [];
+      let cur = this.first;
 
-   printStack(){
-      console.log(this.data);
+      while (cur){
+         array.push(cur.value);
+         cur = cur.next;
+      }
+      
+      array = array.join(' <-- ');
+      console.log(array, `| Length: ${this.length}`);
       return this;
    }
 }
 
-const mystack = new Stack();
-mystack.push('google');
-mystack.push('udemy');
-mystack.push('youtube');
-mystack.pop();
-mystack.pop();
-mystack.push("1337x");
-mystack.push("spotify");
+const myQueue = new Queue();
+console.log(myQueue);
 
-mystack.printStack();
-console.log(mystack.peek());
+myQueue.enqueue('google');
+myQueue.enqueue('udemy');
+myQueue.enqueue('discord');
+myQueue.enqueue('youtube');
+
+myQueue.dequeue();
+myQueue.dequeue();
+myQueue.dequeue();
+myQueue.dequeue();
+
+myQueue.enqueue('ebay')
+myQueue.enqueue('amazon')
+myQueue.enqueue('alibaba')
+
+myQueue.printQueue();
+console.log(myQueue);
