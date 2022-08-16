@@ -33,4 +33,6 @@ b. implement the stack ds but this time using an ARRAY data structure
  - dequeue
  - isEmpty (optional)
 
+b. implement a queue data structure using stacks
+
  
