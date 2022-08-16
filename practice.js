@@ -17,7 +17,11 @@ class BinarySearchTree {
    constructor(){
       this.root = null;
    }
+
    insert(value){
+      // check param
+      if (value === undefined || value === null) return "insertion was unsuccessful!";
+
       if (!this.root){
          this.root = new Node(value);
          return this;
@@ -25,23 +29,36 @@ class BinarySearchTree {
 
       let cur = this.root;
       let holdParent = this.root;
+      const newNode = new Node(value);
 
       while(cur !== null){
-         const newNode = new Node(value);
+         holdParent = cur;
 
          if (value <= cur.value){
-            holdParent = cur;
             cur = cur.left;
             if (cur === null){
                holdParent.left = newNode;    // add node
             }
          } else {
-            holdParent = cur;
             cur = cur.right;
             if (cur === null){
                holdParent.right = newNode    // add node
             }
          }
       }
+
+      lookup(value){
+      }
    }
 }
+
+const myBST = new BinarySearchTree();
+myBST.insert(9);
+myBST.insert(4);
+myBST.insert(20);
+myBST.insert(15);
+myBST.insert(170);
+myBST.insert(1);
+myBST.insert(6);
+
+console.log(myBST);
