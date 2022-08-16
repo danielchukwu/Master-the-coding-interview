@@ -20,19 +20,25 @@
 b. Build a Doubly Linked List with the above operations also
 
 4. Build a Stack Data Structure with the following methods 
- - peek
- - push
- - pop 
- - isEmpty (optional)
+   - peek
+   - push
+   - pop 
+   - isEmpty (optional)
 
 b. implement the stack ds but this time using an ARRAY data structure
 
 5. Build a Queue Data Structure with the following methods
- - peek
- - enqueue 
- - dequeue
- - isEmpty (optional)
+   - peek
+   - enqueue 
+   - dequeue
+   - isEmpty (optional)
 
 b. implement a queue data structure using stacks
+
+6. Build a Binary Search Tree Data Structure with the following methods
+   - insert
+   - lookup 
+   - remove 
+
 
  
