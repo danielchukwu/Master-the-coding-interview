@@ -46,14 +46,31 @@ class BinarySearchTree {
             }
          }
       }
-
-      lookup(value){
-      }
    }
+
+   lookup(value){
+      // check params
+      if (value === undefined || value === null) return "lookup was unsuccessful";
+      
+      let cur = this.root;
+
+      while(cur !== null){
+         if (value === cur.value){
+            return cur;
+         } else if (value < cur.value){
+            cur = cur.left;      // go left
+         } else {
+            cur = cur.right;     // go right
+         }
+      }
+      return "No Such Node Exists"
+   }
+
+   // remove
 }
 
 const myBST = new BinarySearchTree();
-myBST.insert(9);
+myBST.insert(9);              // insertions
 myBST.insert(4);
 myBST.insert(20);
 myBST.insert(15);
@@ -61,4 +78,5 @@ myBST.insert(170);
 myBST.insert(1);
 myBST.insert(6);
 
+console.log(myBST.lookup(9))  // lookup
 console.log(myBST);
