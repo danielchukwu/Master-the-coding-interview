@@ -66,7 +66,9 @@ class BinarySearchTree {
       return "No Such Node Exists"
    }
 
-   // remove
+   remove() {
+
+   }
 }
 
 const myBST = new BinarySearchTree();
