@@ -37,6 +37,16 @@ class Graph {
       }
    }
    showConnections(){
+      const keys = Object.keys(this.adjacencyList);
+      for (let i in keys){
+         const k = keys[i];
+         const vertexConnections = this.adjacencyList[k];
+         let connections = k +" -> ";
+         for (let i=0; i<vertexConnections.length; i++){
+            connections += vertexConnections[i] + " ";
+         }
+         console.log(connections);
+      }
    }
 }
 
@@ -58,5 +68,7 @@ myGraph.addEdge(3,4);
 myGraph.addEdge(4,5);
 myGraph.addEdge(5,6);
 
+
 console.log(myGraph.adjacencyList)
 console.log(myGraph.numberOfNodes)
+myGraph.showConnections();
