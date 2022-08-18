@@ -44,11 +44,28 @@ class Heap{
 
    sortMinHeap() {
       let i = this.array.length; // index+1 for num
-      let j = Math.floor(i/2); // index+1 for parent
+      let j = Math.floor(i/2);   // index+1 for parent
+
+      console.log(this.array)
+      console.log("v=",i, " p=", j);
+      console.log(`${this.array[i-1]} ${this.array[j-1 >= 0? j-1 : 0]}`)
+
+      while(j>=0){
+         let val = this.array[i-1];
+         let parent = this.array[j-1];
+
+         if (val < parent){
+            [this.array[i-1], this.array[j-1]] = [this.array[j-1], this.array[i-1]];
+            i = j;
+            j = Math.floor(j/2);
+         } else {
+            break;
+         }
+      }
    }
 }
 
-const myHeap = new Heap(true);
+const myHeap = new Heap(false);
 myHeap.insert(5);
 myHeap.insert(12);
 myHeap.insert(64);
@@ -56,6 +73,6 @@ myHeap.insert(1);
 myHeap.insert(37);
 myHeap.insert(90);
 myHeap.insert(91);
-myHeap.insert(97);
+myHeap.insert(9);
 
 console.log(myHeap.array);
