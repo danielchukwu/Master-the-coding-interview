@@ -21,7 +21,7 @@ class BinarySearchTree {
    insert(value){
       // check param
       if (value === undefined || value === null) return "insertion was unsuccessful!";
-
+      
       if (!this.root){
          this.root = new Node(value);
          return this;
