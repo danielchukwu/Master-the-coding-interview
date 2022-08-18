@@ -5,41 +5,46 @@
 // - lookup
 // - remove
 
-class Heap {
-   constructor(isMax = false) {
+class Heap{
+   constructor (isMax=false) {
       this.array = [];
       this.isMax = isMax;
    }
-   insert(value) {
+   insert(value){
       // check param: data type, nu, exists, is array empty
       this.array.push(value);
-      if (this.isMax) { this.sortMaxHeap(); }
-      else { this.sortMinHeap(); }
+      if (this.isMax) {this.sortMaxHeap();}
+      else {this.sortMinHeap();}
 
       return this;
    }
 
-   sortMaxHeap() {
+   sortMaxHeap(){
       let i = this.array.length;                  // index+1 of last item
-      let j = Math.floor(i / 2);  // index+1 of parent item
-
+      let j = Math.floor(i/2);  // index+1 of parent item
+      
       console.log(this.array)
       console.log(`v=${i} `, `p=${j}`)
-      console.log(`v=${this.array[i - 1]} `, `p=${this.array[j - 1]}`)
+      console.log(`v=${this.array[i-1]} `, `p=${this.array[j-1]}`)
 
       // sort new value for maximum
-      while (j - 1 >= 0) {
-         let val = this.array[i - 1];
-         let parent = this.array[j - 1];
+      while (j-1>=0) {
+         let val = this.array[i-1];
+         let parent = this.array[j-1];
 
-         if (val > parent) {
-            [this.array[i - 1], this.array[j - 1]] = [this.array[j - 1], this.array[i - 1]]  // swapped
+         if (val > parent){
+            [this.array[i-1], this.array[j-1]] = [this.array[j-1], this.array[i-1]]  // swapped
             i = j;
-            j = Math.floor(j / 2);
+            j = Math.floor(j/2);
          } else {
             break;
          }
       }
+   }
+
+   sortMinHeap() {
+      let i = this.array.length; // index+1 for num
+      let j = Math.floor(i/2); // index+1 for parent
    }
 }
 
