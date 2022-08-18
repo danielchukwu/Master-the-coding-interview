@@ -62,7 +62,7 @@ def findSum2(arr, target):
    return f"no indices sum to {target}"
 
 
-findSum2([2,7,11,15], 13) # Time O(n) and Space O(n)
+# findSum2([2,7,11,15], 13) # Time O(n) and Space O(n)
 # def findSum(arr, target):
 
 
@@ -72,4 +72,22 @@ findSum2([2,7,11,15], 13) # Time O(n) and Space O(n)
 # first off i want to make use of a HashTable data sturcuture (thanks to it's constant time lookup and insertion that will help us in the future) then we want to simply iterate through the array using a for loop and on each iteration we want to check if the current iteration elements compliment is in our hash table data structure -> if it is then we have found our pairs - if not we add the current iteration elements compliment and continue to the next iteration
 
 def findSum3(arr, target):
-   pass
+   hashTable = {}
+
+   # iterate through array with i=index and 
+   # item = current iter element
+   for i, item in enumerate(arr):
+      compliment = str(target - item)
+
+      # print(item, " in ", hashTable)
+      # check if compliment of pair that
+      # adds up to given target is in our hash table
+      if (str(item) in hashTable):
+         return (i, hashTable[str(item)])
+      else:
+         hashTable[compliment] = i
+   
+   return "sum could not be found"
+
+result = findSum3([2,7,11,15], 9) # Time O(n) and Space O(n)
+print(result)
