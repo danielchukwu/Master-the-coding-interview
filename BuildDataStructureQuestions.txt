@@ -37,13 +37,17 @@ b. implement a queue data structure using stacks
 
 6. Build a Binary Search Tree Data Structure with the following methods
    - insert
-   - lookup 
+   - lookup
    - remove 
 
 b. Build a Binary Heap
    - insert
 
 
+7. Build a Graph Data Structure with the following methods 
+   - addVertex
+   - addEdge 
+   - showConnection (tip: method should basically print the entire connection of every vertex in the graph)
 
 
  
