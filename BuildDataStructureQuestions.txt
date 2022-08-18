@@ -40,5 +40,8 @@ b. implement a queue data structure using stacks
    - lookup 
    - remove 
 
+b. Build a Binary Heap
+   - insert
+
 
  

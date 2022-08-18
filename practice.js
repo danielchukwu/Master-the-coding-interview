@@ -2,8 +2,6 @@
 // Topic - Coding Interview Problem
 // Problem: Build a Max Heap
 // - insert
-// - lookup
-// - remove
 
 class Heap{
    constructor (isMax=false) {
