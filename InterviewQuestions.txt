@@ -240,3 +240,33 @@ Stacks & Queues
  
  
  
+
+
+ 
+ 
+ Recursion
+ 1. Problem: Write two functions that finds the factorial of any number. One should use recursive, the other should just use a for loop 
+
+ function findFactorialRecursive(number){
+   // code here
+   return answer
+ }
+ function findFactorialIterative(number){
+   // code here
+   return answer
+ }
+
+ 2. Problem: Given a number N return the index value of thhe Fibonacci sequence, where the sequence is:
+    0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...
+    The pattern of the sequence is that each value is the sum of the 2 previous values, that means N=5 -> 2+3
+
+    function fibonacciIterative(n){
+      //code here
+    }
+    fibonacciIterative(3)
+    
+    function fibonacciIterativeRecursive(n){
+      //code here
+    }
+    fibonacciIterativeRecursive(3)
+
