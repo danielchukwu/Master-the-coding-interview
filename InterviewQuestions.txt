@@ -270,10 +270,17 @@ Stacks & Queues
     }
     fibonacciIterativeRecursive(3)
 
-3. Problem: //Implement a function that reverses a string using iteration...and then recursion!
+3. Problem: Implement a function that reverses a string using iteration...and then recursion!
    function reverseString(str) {
 
    }
 
    reverseString('yoyo mastery')
    //should return: 'yretsam oyoy'
+
+4. Problem: Go back to the tree section and write a traversal function that prints out the entire branches of any 
+   node it takes
+
+   function traverse(node){
+      // code here
+}

@@ -144,6 +144,9 @@ class BinarySearchTree {
       }
    }
 }
+//        9
+//    4      20
+//  1   6  15   170
 
 const myBST = new BinarySearchTree();
 myBST.insert(9);              // insertions
