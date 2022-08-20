@@ -41,14 +41,14 @@ function bubbleSort(array) {  // Bubble sort => Time O(n^2), Space
    }
 }
 
-bubbleSort(numbers);
-console.log(numbers);
+// bubbleSort(numbers);
+// console.log(numbers);
 
 
-// Teachers Solution (Better Code than mine)
+// Teachers Solution (more readable)
 function bubbleSort2(array){
    const length = array.length;
-
+   
    for (let i = 0; i < length; i++) {
       for (let j = 0; j < length; j++) {
          if (array[j] > array[j+1]){
@@ -61,3 +61,5 @@ function bubbleSort2(array){
    }
 }
 
+bubbleSort2(numbers);
+console.log(numbers);
