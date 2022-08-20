@@ -157,7 +157,21 @@ myBST.insert(170);
 myBST.insert(1);
 myBST.insert(6);
 
-myBST.remove(20);
-
 console.log(myBST.lookup(9))  // lookup
 console.log(myBST);
+
+
+
+// Section 12 : Recursion assignment completion
+function traverse(node){
+   // base case
+   if (node === null || (node.left === null && node.right === null)){
+      return node;
+   }
+
+   // recursive case
+   return {value: node.value, left: traverse(node.left), right: traverse(node.right)};
+}
+
+const result = JSON.stringify(traverse(myBST.root));
+// console.log(`traversal result: ${result}`)
