@@ -1,81 +1,45 @@
 // Javascript - {}
-// Topic: Sorting
-// Problem: Implement a selection sort Algorithm 
+// Topic - Sorting (Insertion)
+// Problem: Implement an Insertion Sort Algorithm
 // const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-// function selectionSort(array){
+// function insertionSort(array){
 
 // }
 
-// selectionSort(numbers);
+// insertionSort(numbers);
 // console.log(numbers);
 
 
 
-// My solution
+// My Solution
 
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-function selectionSort(array){
-   // check params: size of array, data type
-   if (array.lenght < 2) return array;
-
-   let length = array.length;
-   let min = 0;   // 1st pointer - holds smallest value index
-   let j = 0;   // 2nd pointer
-   let swap_index = 0
-
-   while (j < length){
-      // check to update smallest
-      if (array[j] < array[min]){
-         min = j
-      }
-      j++;
-      
-      // swap
-      if (j === length){
-         let temp = array[swap_index];
-         array[swap_index] = array[min]
-         array[min] = temp;
-         
-         // next iter
-         swap_index++;
-         min = swap_index;
-         j = swap_index;
-      }
-   }
-
-   return array;
-}
-
-// selectionSort(numbers);
-// console.log(numbers);
-
-
-// Tutor's Solution (kind of a tie)
-
-function selectionSort2(array) {
-   // check params: size
+function insertionSort(array){
+   // check params
    if (array.length < 2) return array;
-   
-   let length = array.length
+   let length = array.length;
 
-   for (let i = 0; i < length; i++) {
-      // set minimum
-      let min = i;
-      let temp = array[min];
-      
-      for (let j=i+1; j < length; j++){
-         if (array[j] < array[min]){
-            // set minimum to smallest value
-            min = j;
+   cursor = 1;
+   while (cursor < length){
+
+      for (let i=cursor; i > 0; i--){
+         // compare current with 
+         if (array[i] < array[i-1]){
+            // swap smaller number with 
+            // greater number
+            let temp = array[i];
+            array[i] = array[i-1];
+            array[i-1] = temp;
+         } else {
+            cursor++;
+            break;
          }
       }
-      
-      array[i] = array[min];
-      array[min] = temp;
    }
-   return array;
+
 }
-selectionSort2(numbers);
+
+insertionSort(numbers);
 console.log(numbers);

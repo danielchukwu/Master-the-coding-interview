@@ -1,4 +1,4 @@
-1. Program: Given 2 arrays that are sorted, merge this two arrays into one big one
+1. Program: Given 2 arrays that are Sorted, merge this two arrays into one big one
    Input  = [0, 3, 4, 31], [4, 6, 30]
    Output = [0, 3, 4, 4, 6, 30, 31]
 
@@ -290,7 +290,7 @@ Stacks & Queues
 
 
 Sorting 
-1. Problem: Implement a Bubble sort Algorithm 
+1. Problem: Implement a Bubble Sort Algorithm 
    const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
    function bubbleSort(array) {
@@ -300,7 +300,7 @@ Sorting
    bubbleSort(numbers);
    console.log(numbers);
 
-2. Problem: Implement a selection sort Algorithm 
+2. Problem: Implement a selection Sort Algorithm 
    const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
    function selectionSort(array){
@@ -308,4 +308,14 @@ Sorting
    }
 
    selectionSort(numbers);
+   console.log(numbers);
+
+3. Problem: Implement an Insertion Sort Algorithm
+   const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+   function insertionSort(array){
+
+   }
+
+   insertionSort(numbers);
    console.log(numbers);

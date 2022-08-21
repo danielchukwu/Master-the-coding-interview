@@ -1,65 +1,45 @@
 // Javascript - {}
-// Topic: Algorithms(sorting)
-// Problem: Implement a Bubble sort Algorithm 
+// Topic - Sorting (Insertion)
+// Problem: Implement an Insertion Sort Algorithm
 // const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-// function bubbleSort(array) {
+// function insertionSort(array){
 
 // }
 
-// bubbleSort(numbers);
+// insertionSort(numbers);
 // console.log(numbers);
 
 
-// My Solution 
+
+// My Solution
 
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-function bubbleSort(array) {  // Bubble sort => Time O(n^2), Space 
-   // check params: length, data type
-   let i = 0
-   let arraySize = numbers.length-1;
+function insertionSort(array){
+   // check params
+   if (array.length < 2) return array;
+   let length = array.length;
 
-   while (i <= arraySize){
-      // comparison done
-      if (arraySize === 0){
-         break;
-      }
-      // compare again from beginning
-      if (i === arraySize){
-         i = 0;
-         arraySize--;
-         continue;
-      }
+   cursor = 1;
+   while (cursor < length){
 
-      // swap elements if first greater than 7
-      if (array[i] > array[i+1]){
-         [array[i], array[i+1]] = [array[i+1], array[i]];  // swap
-      }
-
-      i++;
-   }
-}
-
-// bubbleSort(numbers);
-// console.log(numbers);
-
-
-// Teachers Solution (more readable)
-function bubbleSort2(array){
-   const length = array.length;
-   
-   for (let i = 0; i < length; i++) {
-      for (let j = 0; j < length; j++) {
-         if (array[j] > array[j+1]){
-            // swap numbers
-            const temp = array[j];
-            array[j] = array[j+1];
-            array[j+1] = temp;
+      for (let i=cursor; i > 0; i--){
+         // compare current with 
+         if (array[i] < array[i-1]){
+            // swap smaller number with 
+            // greater number
+            let temp = array[i];
+            array[i] = array[i-1];
+            array[i-1] = temp;
+         } else {
+            cursor++;
+            break;
          }
       }
    }
+
 }
 
-bubbleSort2(numbers);
+insertionSort(numbers);
 console.log(numbers);
