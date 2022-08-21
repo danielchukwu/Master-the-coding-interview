@@ -17,8 +17,38 @@
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
 function selectionSort(array){
-   
+   // check params: size of array, data type
+   if (array.lenght < 2) return array;
+
+   let length = array.length;
+   let min = 0;   // 1st pointer - holds smallest value index
+   let j = 0;   // 2nd pointer
+   let swap_index = 0
+
+   while (j < length){
+      // check to update smallest
+      if (array[j] < array[min]){
+         min = j
+      }
+      j++;
+      
+      // swap
+      if (j === length){
+         let temp = array[swap_index];
+         array[swap_index] = array[min]
+         array[min] = temp;
+         
+         // next iter
+         swap_index++;
+         min = swap_index;
+         j = swap_index;
+      }
+      
+   }
 }
 
-selectionSort(numbers);
+// selectionSort(numbers);
 console.log(numbers);
+
+
+// Tutor's Solution ()
