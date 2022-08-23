@@ -336,5 +336,15 @@ Sorting
    function merge(left, right){
    }
 
-   insertionSort(numbers);
-   console.log(numbers);
+   const result = insertionSort(numbers);
+   console.log(result);
+
+5. Problem: Implement a Quick Sort Algoritm 
+   const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+   function quickSort(array){
+
+   }
+   const result = quickSort(numbers);
+   console.log(result);
+   
