@@ -345,6 +345,7 @@ Sorting
    function quickSort(array){
 
    }
+   
    const result = quickSort(numbers);
    console.log(result);
    
