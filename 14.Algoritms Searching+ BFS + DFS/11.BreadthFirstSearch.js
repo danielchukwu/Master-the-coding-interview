@@ -87,5 +87,5 @@ myBst.insert(170);
 result = myBst.lookup(15)
 console.log(result);
 
-structure = myBst.print()
-console.log(structure)
+structure = myBst.print();
+console.log(structure);
