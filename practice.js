@@ -1,91 +1,41 @@
-// Javascript - {}
-// Topic: BFS
-// Problem: create a Binary Search Tree with the below methods
-// method: insert, lookup, remove
-
 class Node {
-   constructor(value) {
+   constructor (value) {
       this.value = value;
-      this.left = null;
-      this.right = null;
+      this.next = null;
    }
 }
 
-class BinarySearchTree {
-   constructor (){
-      this.root = new Node();
+class Queue {
+   constructor(value) {
+      this.first = value ? new Node(value) : null;
+      this.last = this.first;
+      this.length = value ? 1 : 0;
    }
-
-   insert(value) {
-      // debugger;
-      if (this.root.value === undefined){
-         // initialize root node
-         this.root.value = value;
+   enqueue(value){
+      this.length++;
+      // check param
+      if (!value) return "invalid param"
+      if (!this.first){
+         this.first = new Node(value);
+         this.last = this.first;
          return;
       }
-      let cur = this.root;
-      const newNode = new Node(value);
 
-      while (cur) {
-         if (value > cur.value){
-            if (cur.right === null) {
-               cur.right = newNode;
-               break;
-            }
-            // move right
-            cur = cur.right;
-         } else {
-            if (cur.left === null) {
-               cur.left = newNode;
-               break;
-            }
-            // move left
-            cur = cur.left;
-         }
-      }
-   }
-   lookup(value) {
-      // check param
-      if (value === undefined || value === null) return "invalid parameters passed in";
-      if (!this.root.value) return "empty tree";
-
-      let cur = this.root;
-      
-      while (cur) {
-         if (value === cur.value){
-            // node found. return node
-            return cur;
-         }
-
-         if (value > cur.value){
-            cur = cur.right;
-         } else {
-            cur = cur.left;
-         }
-      }
-   }
-   
-   print (node = this.root) {
-      // base case
-      if (!node.right && !node.left) return node.value;
-
-      // recursive case
-      return `${node.value} -> ${this.print(node.left)} [->] ${this.print(node.right)}`
+      let newNode = new Node(value);
+      let temp = this.last;
+      this.last = newNode;
+      temp.next = this.last;
    }
 }
 
+const myQueue = new Queue()
+myQueue.enqueue(5);
+myQueue.enqueue(3);
+myQueue.enqueue(4);
+myQueue.enqueue(20);
 
-const myBst = new BinarySearchTree();
-myBst.insert(9);
-myBst.insert(4);
-myBst.insert(20);
-myBst.insert(1);
-myBst.insert(6);
-myBst.insert(15);
-myBst.insert(170);
-
-result = myBst.lookup(15)
-console.log(result);
-
-structure = myBst.print()
-console.log(structure)
+myQueue.print();
+const result = myQueue.dequeue();
+console.log(result)
+myQueue.print();
+console.log(myQueue)
