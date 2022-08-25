@@ -35,6 +35,17 @@ class Queue {
    peek(){
       return this.first;
    }
+   print(){
+      let cur = this.first;
+      let structure = '';
+
+      while (cur){
+         // iterate true entire linked list
+         structure += `${cur.value} -> `;
+         cur = cur.next
+      }
+      console.log(structure +'null')
+   }
 }
 
 const myQueue = new Queue()
