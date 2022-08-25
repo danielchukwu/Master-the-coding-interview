@@ -150,6 +150,22 @@ class BinarySearchTree {
       console.log(bfs);
       return bfs;
    }
+
+   dfsInorder(cur) {
+      // base case
+      if (cur.left === null && cur.right === null) {
+         return [cur.value]
+      }
+
+      // recursive case
+      let left = cur.left ? this.dfsInorder(cur.left) : [];         // 15
+      let right = cur.right ? this.dfsInorder(cur.right) : [];      // 170
+
+      // return [left, cur.value, right];     // [[1, 4, 6], 9 ,[15, 20, 170]]
+      return [...left, cur.value, ...right];     // [[1, 4, 6], 9 ,[15, 20, 170]]
+   }
+
+   
 }
 
 
@@ -163,9 +179,17 @@ myBst.insert(15);
 myBst.insert(170);
 
 result = myBst.lookup(15)
-console.log(result); 
+// console.log(result); 
 
 structure = myBst.print()
-console.log(structure)
+// console.log(structure)
 
+// BFS
 myBst.BreadthFirstSearch();
+
+// DFS - inOrder
+let inOrder = myBst.dfsInorder(myBst.root);
+console.log(inOrder)
+
+// DFS - preOrder
+let preOrder = myBst.dfsPreOrder(myBst.root);
