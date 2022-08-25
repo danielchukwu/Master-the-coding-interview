@@ -26,6 +26,12 @@ class Queue {
       this.last = newNode;
       temp.next = this.last;
    }
+   dequeue(){
+      // code here
+      let temp = this.first;
+      this.first = this.first.next;
+      return temp;
+   }
 }
 
 const myQueue = new Queue()
