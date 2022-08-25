@@ -165,7 +165,18 @@ class BinarySearchTree {
       return [...left, cur.value, ...right];     // [[1, 4, 6], 9 ,[15, 20, 170]]
    }
 
-   
+   dfsPreOrder(cur) {
+      // base case
+      if (cur.left === null && cur.right === null){
+         return cur.value
+      }
+
+      // recursive case
+      let left = cur.left ? this.dfsPreOrder(cur.left) : [];
+      let right = cur.right ? this.dfsPreOrder(cur.right) : [];
+
+      return [cur.value, ...left, ...right];
+   }
 }
 
 
