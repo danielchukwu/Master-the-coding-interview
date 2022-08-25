@@ -32,6 +32,9 @@ class Queue {
       this.first = this.first.next;
       return temp;
    }
+   peek(){
+      return this.first;
+   }
 }
 
 const myQueue = new Queue()
