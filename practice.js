@@ -1,4 +1,9 @@
-class Node {
+// Javascript - {}
+// Topic: BFS
+// Problem: create a Binary Search Tree with the below methods
+// method: insert, lookup, remove
+
+class Node1 {
    constructor (value) {
       this.value = value;
       this.next = null;
@@ -7,7 +12,7 @@ class Node {
 
 class Queue {
    constructor(value) {
-      this.first = value ? new Node(value) : null;
+      this.first = value ? new Node1(value) : null;
       this.last = this.first;
       this.length = value ? 1 : 0;
    }
@@ -16,20 +21,21 @@ class Queue {
       // check param
       if (!value) return "invalid param"
       if (!this.first){
-         this.first = new Node(value);
+         this.first = new Node1(value);
          this.last = this.first;
          return;
       }
 
-      let newNode = new Node(value);
+      // add node1
+      let newNode1 = new Node1(value);
       let temp = this.last;
-      this.last = newNode;
+      this.last = newNode1;
       temp.next = this.last;
    }
    dequeue(){
       // code here
       let temp = this.first;
-      this.first = this.first.next;
+      this.first = this.first ? this.first.next : null;
       return temp;
    }
    peek(){
@@ -48,14 +54,118 @@ class Queue {
    }
 }
 
-const myQueue = new Queue()
-myQueue.enqueue(5);
-myQueue.enqueue(3);
-myQueue.enqueue(4);
-myQueue.enqueue(20);
+// export {Queue};
 
-myQueue.print();
-const result = myQueue.dequeue();
-console.log(result)
-myQueue.print();
-console.log(myQueue)
+
+class Node {
+   constructor(value) {
+      this.value = value;
+      this.left = null;
+      this.right = null;
+   }
+}
+
+class BinarySearchTree {
+   constructor (){
+      this.root = new Node();
+   }
+
+   insert(value) {
+      // debugger;
+      if (this.root.value === undefined){
+         // initialize root node
+         this.root.value = value;
+         return;
+      }
+      let cur = this.root;
+      const newNode = new Node(value);
+
+      while (cur) {
+         if (value > cur.value){
+            if (cur.right === null) {
+               cur.right = newNode;
+               break;
+            }
+            // move right
+            cur = cur.right;
+         } else {
+            if (cur.left === null) {
+               cur.left = newNode;
+               break;
+            }
+            // move left
+            cur = cur.left;
+         }
+      }
+   }
+   lookup(value) {
+      // check param
+      if (value === undefined || value === null) return "invalid parameters passed in";
+      if (!this.root.value) return "empty tree";
+
+      let cur = this.root;
+      
+      while (cur) {
+         if (value === cur.value){
+            // node found. return node
+            return cur;
+         }
+
+         if (value > cur.value){
+            cur = cur.right;
+         } else {
+            cur = cur.left;
+         }
+      }
+   }
+   
+   print (node = this.root) {
+      // base case
+      if (!node.right && !node.left) return node.value;
+
+      // recursive case
+      return `${node.value} -> ${this.print(node.left)} [->] ${this.print(node.right)}`
+   }
+
+   BreadthFirstSearch() {
+      // traverse entire BST
+      const queue = new Queue();
+      let cur = this.root;
+      let bfs = 'BST -> ';
+
+      while (cur){
+         if (cur.left){
+            // add to queue
+            queue.enqueue(cur.left);
+         } 
+         if (cur.right){
+            // add to queue
+            queue.enqueue(cur.right);
+         }
+         // console.log(cur.value);
+         bfs += `${cur.value} `;
+         cur = queue.first ? queue.first.value : null;
+         queue.dequeue();
+      }
+      console.log(bfs);
+      return bfs;
+   }
+}
+
+
+const myBst = new BinarySearchTree();
+myBst.insert(9);
+myBst.insert(4);
+myBst.insert(20);
+myBst.insert(1);
+myBst.insert(6);
+myBst.insert(15);
+myBst.insert(170);
+
+result = myBst.lookup(15)
+console.log(result); 
+
+structure = myBst.print()
+console.log(structure)
+
+myBst.BreadthFirstSearch();
