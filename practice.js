@@ -119,13 +119,13 @@ class BinarySearchTree {
       }
    }
    
-   print (node = this.root) {
-      // base case
-      if (!node.right && !node.left) return node.value;
+   // print (node = this.root) {
+   //    // base case
+   //    if (!node.right && !node.left) return node.value;
 
-      // recursive case
-      return `${node.value} -> ${this.print(node.left)} [->] ${this.print(node.right)}`
-   }
+   //    // recursive case
+   //    return `${node ? node.value :} -> ${this.print(node ? node.left : '')} [->] ${this.print(node ? node.right : '')}`
+   // }
 
    BreadthFirstSearch() {
       // traverse entire BST
@@ -168,7 +168,7 @@ class BinarySearchTree {
    dfsPreOrder(cur) {
       // base case
       if (cur.left === null && cur.right === null){
-         return cur.value
+         return [cur.value];
       }
 
       // recursive case
@@ -176,6 +176,19 @@ class BinarySearchTree {
       let right = cur.right ? this.dfsPreOrder(cur.right) : [];
 
       return [cur.value, ...left, ...right];
+   }
+   
+   dfsPostOrder(cur) {
+      // base case
+      if (cur.left === null && cur.right === null) {
+         return [cur.value];
+      }
+
+      // recursive case
+      let left = cur.left ? this.dfsPostOrder(cur.left) : [];
+      let right = cur.right ? this.dfsPostOrder(cur.right) : [];
+
+      return [...left, ...right, cur.value];
    }
 }
 
@@ -192,7 +205,7 @@ myBst.insert(170);
 result = myBst.lookup(15)
 // console.log(result); 
 
-structure = myBst.print()
+// structure = myBst.print()
 // console.log(structure)
 
 // BFS
@@ -200,7 +213,12 @@ myBst.BreadthFirstSearch();
 
 // DFS - inOrder
 let inOrder = myBst.dfsInorder(myBst.root);
-console.log(inOrder)
+console.log('inorder - ',inOrder)
 
 // DFS - preOrder
 let preOrder = myBst.dfsPreOrder(myBst.root);
+console.log('preorder - ',preOrder);
+
+// DFS - postOrder
+let postOrder = myBst.dfsPostOrder(myBst.root);
+console.log('postorder - ',postOrder);
