@@ -3,6 +3,8 @@
 // Problem: create a Binary Search Tree with the below methods
 // method: insert, lookup, remove
 
+// main quenstion: Then implement the BFS and DFS (Inorder, Preorder, and Postorder)
+
 class Node {
    constructor(value) {
       this.value = value;

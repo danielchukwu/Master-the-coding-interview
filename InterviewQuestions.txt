@@ -348,4 +348,35 @@ Sorting
    
    const result = quickSort(numbers);
    console.log(result);
-   
+
+
+
+
+
+Searching + BFS + DFS
+1. create a Binary Search Tree with the below methods
+method: insert, lookup
+
+main quenstion: Then implement the BFS and DFS (Inorder, Preorder, and Postorder)
+
+class Node {
+   constructor(value) {
+      this.value = value;
+      this.left = null;
+      this.right = null;
+   }
+}
+
+class BinarySearchTree {
+   constructor (){
+      this.root = new Node();
+   }   
+   insert(){...}
+   lookup(){...}
+
+   bfs(){}
+   dfsInorder(){}
+   dfsInorder(){}
+   dfsPreorder(){}
+   dfsPostorder(){}
+}
